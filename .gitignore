@@ -1,1 +1,6 @@
 .venv
+/public
+/media
+/devdocs
+*.sqlite3
+*.pyc
