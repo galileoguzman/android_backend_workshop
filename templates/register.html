@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<title>LoopTalks | Login</title>
+	<title>LoopTalks | Register</title>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
@@ -15,7 +15,12 @@
   <div class="row">
     <div class="col s5 offset-s4 card-panel">
       <form id="register_form" method="post" action="/register/">
-      {% csrf_token %}
+        <div class="row">
+          <div class="input-field col s12 center">
+            <h3 class="light-green-text">Register | Loop Talks</h3>
+          </div>
+        </div>
+        {% csrf_token %}
 
         {% for field in form %}
         <div class="row">
@@ -40,6 +45,7 @@
             </a>
           </p>
         </div>
+
       </form>
     </div>
   </div>

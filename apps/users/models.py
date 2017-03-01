@@ -17,3 +17,6 @@ class User(AbstractBaseUser):
     def __unicode__(self):
         return self.email
 
+    def save(self,*args, **kw):
+        super(User,self).save(*args, **kw)
+

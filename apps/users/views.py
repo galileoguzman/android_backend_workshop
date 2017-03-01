@@ -52,7 +52,7 @@ def user_register(request):
 		form = RegistrationForm(request.POST)
 		if form.is_valid():
 			user = form.save(commit=False)
-			user.set_password(user.password)
+			#user.set_password(user.password)
 			user.save()
 			user = authenticate(username=user.username, password=request.POST['password1'])
 			login(request, user)
@@ -60,7 +60,7 @@ def user_register(request):
 			return redirect('/')
 	else:
 		form = RegistrationForm()
-	return render(request, 'movie_edit.html', {
+	return render(request, 'register.html', {
 		'form': form,
 	})
 		
