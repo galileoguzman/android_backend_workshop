@@ -8,20 +8,20 @@
 <div class="row">
 	<ul class="pagination">
 
-		{% if articles.has_previous %}
+		{% if movies.has_previous %}
         <li class="disabled">
-        	<a href="?page={{ articles.previous_page_number }}">
+        	<a href="?page={{ movies.previous_page_number }}">
         		<i class="material-icons">chevron_left</i>
         	</a>
         </li>
         {% endif %}
         
         <li class="waves-effect">
-            {{ articles.number }} de {{ articles.paginator.num_pages }}
+            {{ movies.number }} de {{ movies.paginator.num_pages }}
         </li>
-        {% if articles.has_next %}
+        {% if movies.has_next %}
         <li class="waves-effect">
-        	<a href="?page={{ articles.next_page_number }}">
+        	<a href="?page={{ movies.next_page_number }}">
         		<i class="material-icons">chevron_right</i>
         	</a>
         </li>
@@ -46,25 +46,18 @@
 				</div>
 			</div>
 		</li>
-		{% for p in articles%}
+		{% for m in movies%}
 	    <li class="collection-item avatar">
 			<img src="{{p.image.url}}" alt="" class="circle">
-			<span class="title title-live">{{p.name}}</span>
-			<p>{{p.body|slice:":100"|striptags}}</p>
-			<p class="since-time-message">Enviado hace {{p.created_at|timesince}}</p>
+			<span class="title title-live">{{m.name}}</span>
+			<p>{{m.synopsis}}</p>
+			<p class="since-time-message">Created at {{m.created_at|timesince}}</p>
 			<div class="secondary-content">
-				<a href="/articles/edit/{{p.id}}/" >
-					<i class="material-icons icon-pink">mode_edit</i>
+				<a href="edit/{{m.id}}/" >
+					<i class="material-icons icon-green">mode_edit</i>
 				</a>
-				<a href="/articles/delete/{{p.id}}/" >
-					<i class="material-icons icon-red">delete</i>
-				</a>
-				<a href="#!">
-					{% if p.status == '0' %}
-					<i class="material-icons icon-sadness">grade</i>
-					{% else %}
-					<i class="material-icons icon-yellow">grade</i>
-					{% endif%}
+				<a href="delete/{{m.id}}/" >
+					<i class="material-icons icon-green">delete</i>
 				</a>
 			</div>
 	    </li>

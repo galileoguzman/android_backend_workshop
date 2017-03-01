@@ -11,31 +11,38 @@
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/board.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"/>
 
 </head>
 <body class="white">
 
 <div class="navbar-fixed">
-    <nav class="light-green">
+    <div class="light-green">
     	<ul id="dropdown1" class="dropdown-content">
     		<li>
     			<a href="/logout/">Logout</a>
     		</li>
     	</ul>
-        <div class="nav-wrapper">
-          
-          <img src="{% static 'img/logo.png' %}" alt="" class="brand-cortv">
-          <ul class="right hide-on-med-and-down">
-            
-            <li>
-            	<a class="dropdown-button red-text darken-2" href="#!" data-activates="dropdown1">
-            		<i class="material-icons right">assignment_ind</i>
-            		Profile
-            	</a>
-            </li>
-          </ul>
-    </nav>
+        <nav>
+            <div class="nav-wrapper light-green">
+                <a href="#!" class="brand-logo">Loop Talks</a>
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <a href="sass.html">Sass</a>
+                    </li>
+                    <li>
+                        <a href="badges.html">Components</a>
+                    </li>
+                    <!-- Dropdown Trigger -->
+                    <li>
+                        <a class="dropdown-button" href="#!" data-activates="dropdown1">
+                            Profile<i class="material-icons right">arrow_drop_down</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
 </div>
 
 <div class="row">
@@ -48,21 +55,21 @@
             <li class="collection-item">
                 <div>Artículos
                     <a href="/articles/" class="secondary-content">
-                        <i class="material-icons icon-red">markunread_mailbox</i>
+                        <i class="material-icons icon-green">markunread_mailbox</i>
                     </a>
                 </div>
             </li>
             <li class="collection-item">
                 <div>Noticias
                     <a href="/news/" class="secondary-content">
-                        <i class="material-icons icon-red">library_books</i>
+                        <i class="material-icons icon-green">library_books</i>
                     </a>
                 </div>
             </li>
             <li class="collection-item">
                 <div>Programación
                     <a href="/schedules/" class="secondary-content">
-                        <i class="material-icons icon-red">toc</i>
+                        <i class="material-icons icon-green">toc</i>
                     </a>
                 </div>
             </li>
