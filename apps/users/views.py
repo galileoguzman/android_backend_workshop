@@ -8,6 +8,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.utils.datastructures import MultiValueDictKeyError
 from django.contrib.auth.decorators import login_required
 
+from forms import RegistrationForm
 # Create your views here.
 # --------------------------------------------------------------------
 # LOGIN PATTERN MANAGEMENT
@@ -47,7 +48,22 @@ def user_logout(request):
 
 
 def user_register(request):
-	return render(request, 'register.html', {})
+	if request.method == "POST":
+		form = RegistrationForm(request.POST)
+		if form.is_valid():
+			user = form.save(commit=False)
+			user.set_password(user.password)
+			user.save()
+			user = authenticate(username=user.username, password=request.POST['password1'])
+			login(request, user)
+
+			return redirect('/')
+	else:
+		form = RegistrationForm()
+	return render(request, 'movie_edit.html', {
+		'form': form,
+	})
+		
 
 
 
