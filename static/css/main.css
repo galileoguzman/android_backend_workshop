@@ -1,0 +1,140 @@
+*{
+	color: #424242;
+}
+
+#left-panel{
+	margin-top: 2.5em;
+	height: 100%;
+}
+
+#right-panel{
+	margin-top: 2.5em; 
+	overflow: scroll;
+	background-color: #fff;
+	box-shadow: -3px 0 18px rgba(0,0,0,0.5);
+}
+
+#box-login{
+    margin: 0 auto;
+}
+#new-note{
+	border-top: solid 5px red;
+	margin: 2em 0;
+	padding-top: 2em;
+}
+
+#cke_id_body, .django-ckeditor-widget{
+	margin: 0 auto;
+	width: 98% !important;
+}
+
+/* responsive images for inline demo */
+img, svg, .SimpleUploadsTmpWrapper  {
+    height: auto;
+    max-width: 100%;
+}
+
+.icon-red{
+	color: #e53935;
+}
+.icon-pink{
+	color: #ee6e73;
+}
+.icon-yellow{
+	color: #ffeb3b;
+}
+.icon-sadness{
+	color: #ddd;
+}
+.icon-green{
+	color: #8bc34a;
+}
+.title-live{
+	font-weight: bold;
+}
+.no-border{
+	border:none;
+}
+.new-body-title{
+	font-size: 1.5em;
+	font-weight: bold;
+}
+.new-body{
+	background-color: #ddd;
+	border: solid #eee 5px;
+	min-height: 15em;
+	padding: 1em;
+}
+
+
+input:not([type]):focus:not([readonly]),
+input[type=text]:focus:not([readonly]),
+input[type=password]:focus:not([readonly]),
+input[type=email]:focus:not([readonly]),
+input[type=url]:focus:not([readonly]),
+input[type=time]:focus:not([readonly]),
+input[type=date]:focus:not([readonly]),
+input[type=datetime]:focus:not([readonly]),
+input[type=datetime-local]:focus:not([readonly]),
+input[type=tel]:focus:not([readonly]),
+input[type=number]:focus:not([readonly]),
+input[type=search]:focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #1a237e;
+  box-shadow: 0 1px 0 0 #1a237e;
+}
+
+input:not([type]):focus:not([readonly]) + label,
+input[type=text]:focus:not([readonly]) + label,
+input[type=password]:focus:not([readonly]) + label,
+input[type=email]:focus:not([readonly]) + label,
+input[type=url]:focus:not([readonly]) + label,
+input[type=time]:focus:not([readonly]) + label,
+input[type=date]:focus:not([readonly]) + label,
+input[type=datetime]:focus:not([readonly]) + label,
+input[type=datetime-local]:focus:not([readonly]) + label,
+input[type=tel]:focus:not([readonly]) + label,
+input[type=number]:focus:not([readonly]) + label,
+input[type=search]:focus:not([readonly]) + label,
+textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: #1a237e;
+}
+
+select{
+	display: block;
+}
+
+.checkbox-cortv[type="checkbox"].filled-in:checked + label:after{
+     border: 2px solid #1a237e;
+     background-color: #1a237e;
+}
+
+.switch label input[type="checkbox"]:checked + .lever {
+    background-color: #1a237e;
+}
+.switch label input[type="checkbox"]:checked + .lever::after {
+    background-color: #0D47A1;
+    left: 24px;
+}
+
+.error_label{
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.error_message{
+	color: red;
+}
+.brand-cortv{
+	max-height: 90%;
+}
+.notification-image{
+	opacity: 0.4;
+}
+.since-time-message{
+	opacity: 0.5;
+	font-size: 0.8em;
+}
+.django-date .django-date-select{
+	display: inline-block;
+	max-width: 15% !important; 
+}
