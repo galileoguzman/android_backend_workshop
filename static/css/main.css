@@ -22,6 +22,14 @@
 	width: 98% !important;
 }
 
+#login-page{
+	margin-top: 20% !important;
+}
+
+#login-wrapper{
+	margin: 10% auto;
+}
+
 /* responsive images for inline demo */
 img, svg, .SimpleUploadsTmpWrapper  {
     height: auto;
