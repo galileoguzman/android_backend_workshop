@@ -48,7 +48,7 @@
 		</li>
 		{% for m in movies%}
 	    <li class="collection-item avatar">
-			<img src="{{p.image.url}}" alt="" class="circle">
+			<img src="/media/{{m.cover}}" alt="" class="circle">
 			<span class="title title-live">{{m.name}}</span>
 			<p>{{m.synopsis}}</p>
 			<p class="since-time-message">Created at {{m.created_at|timesince}}</p>
