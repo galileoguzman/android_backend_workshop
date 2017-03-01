@@ -2,16 +2,10 @@
 	color: #424242;
 }
 
-#left-panel{
-	margin-top: 2.5em;
-	height: 100%;
-}
-
-#right-panel{
-	margin-top: 2.5em; 
-	overflow: scroll;
-	background-color: #fff;
-	box-shadow: -3px 0 18px rgba(0,0,0,0.5);
+#main-panel{
+	max-width: 1200px;
+	width: 85%;
+	margin: 0 auto;
 }
 
 #box-login{
@@ -80,8 +74,8 @@ input[type=tel]:focus:not([readonly]),
 input[type=number]:focus:not([readonly]),
 input[type=search]:focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid #1a237e;
-  box-shadow: 0 1px 0 0 #1a237e;
+  border-bottom: 1px solid #8bc34a;
+  box-shadow: 0 1px 0 0 #8bc34a;
 }
 
 input:not([type]):focus:not([readonly]) + label,
@@ -97,7 +91,7 @@ input[type=tel]:focus:not([readonly]) + label,
 input[type=number]:focus:not([readonly]) + label,
 input[type=search]:focus:not([readonly]) + label,
 textarea.materialize-textarea:focus:not([readonly]) + label {
-  color: #1a237e;
+  color: #8bc34a;
 }
 
 select{
@@ -105,12 +99,12 @@ select{
 }
 
 .checkbox-cortv[type="checkbox"].filled-in:checked + label:after{
-     border: 2px solid #1a237e;
-     background-color: #1a237e;
+     border: 2px solid #8bc34a;
+     background-color: #8bc34a;
 }
 
 .switch label input[type="checkbox"]:checked + .lever {
-    background-color: #1a237e;
+    background-color: #8bc34a;
 }
 .switch label input[type="checkbox"]:checked + .lever::after {
     background-color: #0D47A1;
