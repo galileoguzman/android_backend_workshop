@@ -28,8 +28,7 @@ def movie_new(request):
 		form = MovieForm(request.POST, request.FILES)
 		if form.is_valid():
 			movie = form.save(commit=False)
-			#movie.author = request.user
-			#movie.published_date = timezone.now()
+			movie.author = request.user
 			movie.save()
 			return redirect('home')
 	else:
