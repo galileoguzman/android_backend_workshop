@@ -1,0 +1,81 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>LoopTalks | Login</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/board.css' %}"/>
+</head>
+<body>
+
+<nav class="indigo darken-4">
+	<div class="nav-wrapper">
+	</div>
+</nav>
+
+<div id="login-page" class="row">
+    <div class="col s5 offset-s4 card-panel">
+      <form id="login_form" method="post" action="/login/">
+      {% csrf_token %}
+
+        <div class="row">
+          <div class="input-field col s12 center">
+            <img src="{% static 'img/logo.png' %}" width="50%" alt="" class="responsive-img valign profile-image-login">
+          </div>
+        </div>
+
+        <div class="row margin">
+          <div class="input-field col s11">
+            <i class="mdi-social-person-outline prefix"></i>
+            <input id="username" type="text" name="username">
+            <label for="email" data-error="wrong" data-success="right">Username</label>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s11">
+            <i class="mdi-action-lock-outline prefix"></i>
+            <input id="password" type="password" name="password">
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <div class="row">          
+          <div class="input-field col s12 m12 l12">
+              <input type="checkbox" id="remember_me" value="1" name="remember_me" class="filled-in checkbox-cortv" />
+              <label for="remember_me">Remember me</label>
+          </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <button class="btn waves-effect waves-light col s12  indigo darken-4" type="submit" name="action">Login
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+{% if errors %}
+  <a id="on_errors" style="display:none" class="waves-effect waves-light btn modal-trigger" href="#modalErrors">Modal</a>
+  <!-- Modal Structure -->
+  <div id="modalErrors" class="modal">
+    <div class="modal-content">
+      <h4 class="indigo-text darken-4">Something was worng</h4>
+      <p>Check the fields you writed.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="waves-effect waves-light btn-large modal-action modal-close indigo darken-4">Accept</a>
+    </div>
+  </div>
+{% endif %}
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+<script type="text/javascript" src="{% static 'js/forms.jquery.js' %}"></script>
+
+  </body>
+</html>
