@@ -1,13 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-
+# paginator django
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from models import Movie
 from forms import MovieForm
 # Create your views here.
 
 @login_required()
 def home(request):
-	return render(request, 'home.html', {})
 	movies_list = Movie.objects.all().order_by('-created_at')
 
 	return render(request, 'home.html',{
