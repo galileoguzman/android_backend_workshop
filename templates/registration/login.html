@@ -17,6 +17,7 @@
     <div class="col s5 offset-s4 card-panel">
       <form id="login_form" method="post" action=".">
       	{% csrf_token %}
+        <input name="next" type="hidden" value="{{next}}">
       	<div class="row">
           <div class="input-field col s12 center">
             <h3 class="light-green-text">Login | Loop Talks</h3>

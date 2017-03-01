@@ -26,6 +26,7 @@
         <nav>
             <div class="nav-wrapper light-green">
                 <a href="#!" class="brand-logo">Loop Talks</a>
+                {% if user.is_authenticated %}
                 <ul class="right hide-on-med-and-down">
                     <li>
                         <a href="/">Home</a>
@@ -33,14 +34,14 @@
                     <li>
                         <a href="notifications/">Notifications</a>
                     </li>
-                    {% if user.is_authenticated %}
+                    
                     <li>
                         <a class="dropdown-button" href="#!" data-activates="dropdown1">
                             {{user.username}}<i class="material-icons right">arrow_drop_down</i>
                         </a>
                     </li>
-                    {% endif %}
                 </ul>
+                {% endif %}
             </div>
         </nav>
     </div>

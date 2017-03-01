@@ -30,6 +30,11 @@
 	margin: 5% auto 0;
 }
 
+#main-form-container{
+	margin: 0 auto;
+	max-width: 500px;
+}
+
 /* responsive images for inline demo */
 img, svg, .SimpleUploadsTmpWrapper  {
     height: auto;
