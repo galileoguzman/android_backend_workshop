@@ -8,7 +8,7 @@ from forms import MovieForm
 
 @login_required()
 def home(request):
-	movies_list = Movie.objects.all().order_by('-created_at')
+	movies_list = Movie.objects.filter(author=request.user).order_by('-created_at')
 	paginator = Paginator(movies_list, 12)
 
 	page = request.GET.get('page')
@@ -41,6 +41,9 @@ def movie_new(request):
 @login_required()
 def movie_edit(request, id):
 	movie = get_object_or_404(Movie, pk=id)
+	if not movie.author == request.user:
+		return redirect('home')
+
 
 	if request.method == "POST":
 		form = MovieForm(request.POST, request.FILES, instance=movie)
@@ -58,6 +61,7 @@ def movie_edit(request, id):
 @login_required()
 def movie_delete(request, id=None):
 	movie = get_object_or_404(Movie, pk=id)
-	movie.delete()
-
+	if movie.author == request.user:
+		movie.delete()
+	
 	return redirect('home')
