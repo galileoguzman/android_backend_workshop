@@ -50,7 +50,7 @@ def movie_edit(request, id):
 			movie.save()
 			return redirect('home')
 	else:
-		form = OpinionForm(instance=movie)
+		form = MovieForm(instance=movie)
 
 	return render(request, 'movie_edit.html', {
 		'form': form,
