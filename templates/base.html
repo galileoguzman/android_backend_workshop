@@ -1,0 +1,93 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Workshop android by LoopTalks</title>
+
+    <script src="{% static 'js/sweetalert.min.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/sweetalert.css' %}">
+
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/board.css' %}"/>
+
+</head>
+<body class="white">
+
+<div class="navbar-fixed">
+    <nav class="light-green">
+    	<ul id="dropdown1" class="dropdown-content">
+    		<li>
+    			<a href="/logout/">Logout</a>
+    		</li>
+    	</ul>
+        <div class="nav-wrapper">
+          
+          <img src="{% static 'img/logo.png' %}" alt="" class="brand-cortv">
+          <ul class="right hide-on-med-and-down">
+            
+            <li>
+            	<a class="dropdown-button red-text darken-2" href="#!" data-activates="dropdown1">
+            		<i class="material-icons right">assignment_ind</i>
+            		Profile
+            	</a>
+            </li>
+          </ul>
+    </nav>
+</div>
+
+<div class="row">
+
+    <div id="left-panel" class="col s12 m4 l3 fixed">
+        <!-- Grey navigation panel -->
+        <ul class="collection with-header no-border">
+            <li class="collection-header"><h4>Menú</h4></li>
+        	
+            <li class="collection-item">
+                <div>Artículos
+                    <a href="/articles/" class="secondary-content">
+                        <i class="material-icons icon-red">markunread_mailbox</i>
+                    </a>
+                </div>
+            </li>
+            <li class="collection-item">
+                <div>Noticias
+                    <a href="/news/" class="secondary-content">
+                        <i class="material-icons icon-red">library_books</i>
+                    </a>
+                </div>
+            </li>
+            <li class="collection-item">
+                <div>Programación
+                    <a href="/schedules/" class="secondary-content">
+                        <i class="material-icons icon-red">toc</i>
+                    </a>
+                </div>
+            </li>
+            <li class="collection-item">
+                <div>Notificaciones
+                    <a href="/notifications/" class="secondary-content">
+                        <i class="material-icons icon-red">message</i>
+                    </a>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+
+    <div id="right-panel" class="col s9">
+        <!-- Teal page content  -->
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+<script type="text/javascript" src="{% static 'js/forms.jquery.js' %}"></script>
+
+
+</body>
+</html>

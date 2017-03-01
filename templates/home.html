@@ -1,9 +1,74 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-<h1>Home</h1>
-</body>
-</html>
+{% extends 'base.html'%}
+{% load staticfiles %}
+
+
+{% block content %}
+<div class="separator"></div>
+
+<div class="row">
+	<ul class="pagination">
+
+		{% if articles.has_previous %}
+        <li class="disabled">
+        	<a href="?page={{ articles.previous_page_number }}">
+        		<i class="material-icons">chevron_left</i>
+        	</a>
+        </li>
+        {% endif %}
+        
+        <li class="waves-effect">
+            {{ articles.number }} de {{ articles.paginator.num_pages }}
+        </li>
+        {% if articles.has_next %}
+        <li class="waves-effect">
+        	<a href="?page={{ articles.next_page_number }}">
+        		<i class="material-icons">chevron_right</i>
+        	</a>
+        </li>
+        {% endif %}
+	</ul>
+</div>
+
+<div class="row">
+	<ul class="collection with-header">
+
+
+		<li class="collection-header">
+			<div class="row">
+				<div class="col s9">
+					<h4>Movies</h4>
+				</div>
+				<div class="col s3">
+					<a href="new/" class="waves-effect waves-light btn light-green">
+						<i class="material-icons left">add</i>
+						New
+					</a>
+				</div>
+			</div>
+		</li>
+		{% for p in articles%}
+	    <li class="collection-item avatar">
+			<img src="{{p.image.url}}" alt="" class="circle">
+			<span class="title title-live">{{p.name}}</span>
+			<p>{{p.body|slice:":100"|striptags}}</p>
+			<p class="since-time-message">Enviado hace {{p.created_at|timesince}}</p>
+			<div class="secondary-content">
+				<a href="/articles/edit/{{p.id}}/" >
+					<i class="material-icons icon-pink">mode_edit</i>
+				</a>
+				<a href="/articles/delete/{{p.id}}/" >
+					<i class="material-icons icon-red">delete</i>
+				</a>
+				<a href="#!">
+					{% if p.status == '0' %}
+					<i class="material-icons icon-sadness">grade</i>
+					{% else %}
+					<i class="material-icons icon-yellow">grade</i>
+					{% endif%}
+				</a>
+			</div>
+	    </li>
+	    {% endfor %}
+	</ul>
+</div>
+{% endblock content %}

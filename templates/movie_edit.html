@@ -1,0 +1,69 @@
+{% extends 'base.html'%}
+{% load staticfiles %}
+
+
+{% block content %}
+
+<div class="row">
+	<h4>{{title_form}}</h4>
+</div>
+<div id="new-note">
+	<form id="new_autor" class="new_autor" method="post" enctype="multipart/form-data">
+	
+
+	{% csrf_token %}
+	{% for field in form %}
+		{% if field.name == 'avatar'  %}
+		<div class="file-field input-field">
+			<div class="btn orange">
+				<span>{{field.label|upper}}</span>
+				{{field}}
+			</div>
+			<div class="file-path-wrapper">
+				<input class="file-path validate" type="text" placeholder="Upload one file">
+			</div>
+		</div>
+		{% else %}
+		<div class="row">
+			<div class="input-field col s12">
+				{{ field }}
+				<label for="icon_prefix2">{{ field.label|upper }}</label>
+			</div>
+		</div>
+		{% endif %}
+	{% endfor %}
+		
+
+	
+	<div class="row">
+		<div class="col s4 offset-s8">
+			  <button class="btn waves-effect waves-light orange" type="submit" name="action">{{button}}
+			    <i class="material-icons right">send</i>
+			  </button>
+		</div>	        
+	</div>
+	</form>
+</div>
+
+{% if form.errors %}
+	<a id="on_errors" style="display:none" class="waves-effect waves-light btn modal-trigger" href="#modalErrors">Modal</a>
+	<!-- Modal Structure -->
+	<div id="modalErrors" class="modal">
+		<div class="modal-content">
+			<h4 class="deep-orange-text accent-4">Ocurrieron los siguientes errores</h4>
+			{% for field in form %}
+				{% for error in field.errors %}
+				    <p><span class="error_label">{{ field.label }}</span> <br><span class="error_message">{{ error|escape }}</span></p>
+				{% endfor %}
+			{% endfor %}
+			{% for error in form.non_field_errors %}
+				<p>{{ error|escape }}</p>
+			{% endfor %}
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="waves-effect waves-light btn-large deep-orange accent-4 modal-action modal-close">Aceptar</a>
+		</div>
+	</div>
+{% endif %}
+
+{% endblock content %}
