@@ -21,3 +21,13 @@ class Movie(models.Model):
 			return u'No image file found'
 	thumbnail.short_description = 'Thumbnail image'
 	thumbnail.allow_tags = True
+
+
+# Receive the pre_delete signal and delete the file associated with the model instance.
+from django.db.models.signals import pre_delete
+from django.dispatch.dispatcher import receiver
+
+@receiver(pre_delete, sender=Movie)
+def movie_delete(sender, instance, **kwargs):
+    # Pass false so FileField doesn't save the model.
+    instance.cover.delete(False)
