@@ -11,5 +11,5 @@ from apps.users import urls as users_urls
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include(movies_urls)),
-    url(r'^', include(users_urls)),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
