@@ -17,33 +17,14 @@
       <form id="register_form" method="post" action="/register/">
       {% csrf_token %}
 
+        {% for field in form %}
         <div class="row">
-          <div class="input-field col s12 center">
-            <h3 class="light-green-text">Register | Loop Talks</h3>
+          <div class="input-field col s12">
+            {{ field }}
+            <label for="icon_prefix2">{{ field.label|upper }}</label>
           </div>
         </div>
-
-        <div class="row margin">
-          <div class="input-field col s11">
-            <i class="mdi-social-person-outline prefix"></i>
-            <input id="username" type="text" name="username">
-            <label for="username" data-error="wrong" data-success="right">Username</label>
-          </div>
-        </div>
-        <div class="row margin">
-          <div class="input-field col s11">
-            <i class="mdi-social-person-outline prefix"></i>
-            <input id="email" type="text" name="email">
-            <label for="email" data-error="wrong" data-success="right">Email</label>
-          </div>
-        </div>
-        <div class="row margin">
-          <div class="input-field col s11">
-            <i class="mdi-action-lock-outline prefix"></i>
-            <input id="password" type="password" name="password">
-            <label for="password">Password</label>
-          </div>
-        </div>
+        {% endfor %}
         <div class="row">
             <div class="input-field col s12">
                 <button class="btn waves-effect waves-light col s12 white light-green-text" type="submit" name="action">Register
